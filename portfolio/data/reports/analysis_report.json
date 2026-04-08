@@ -1,0 +1,216 @@
+{
+  "generated_at": "2026-04-08 14:49:42 UTC",
+  "row_count": 9701,
+  "summary_stats": {
+    "total_orders": 9701.0,
+    "total_revenue": 98251001.52,
+    "avg_order_value": 10127.9251,
+    "max_order_value": 46393.96,
+    "min_order_value": 8.89,
+    "unique_customers": 999.0,
+    "unique_products": 8.0
+  },
+  "revenue_by_region": [
+    {
+      "region": "South",
+      "order_count": 1971,
+      "total_revenue": 20038938.0,
+      "avg_order_value": 10166.888888888889,
+      "total_units": 49082.0
+    },
+    {
+      "region": "West",
+      "order_count": 1973,
+      "total_revenue": 19845192.0,
+      "avg_order_value": 10058.384186517993,
+      "total_units": 49386.0
+    },
+    {
+      "region": "East",
+      "order_count": 1926,
+      "total_revenue": 19663389.94,
+      "avg_order_value": 10209.444413291798,
+      "total_units": 48690.0
+    },
+    {
+      "region": "North",
+      "order_count": 1961,
+      "total_revenue": 19500894.89,
+      "avg_order_value": 9944.362514023458,
+      "total_units": 48946.0
+    },
+    {
+      "region": "Central",
+      "order_count": 1870,
+      "total_revenue": 19202586.69,
+      "avg_order_value": 10268.762935828878,
+      "total_units": 46832.0
+    }
+  ],
+  "top_products": [
+    {
+      "product": "Bundle-2",
+      "order_count": 1248,
+      "total_revenue": 12844059.04,
+      "avg_discount": 0.2014551282051282
+    },
+    {
+      "product": "Service-Pro",
+      "order_count": 1213,
+      "total_revenue": 12623413.28,
+      "avg_discount": 0.20104204451772464
+    },
+    {
+      "product": "Bundle-1",
+      "order_count": 1227,
+      "total_revenue": 12512453.03,
+      "avg_discount": 0.19723064384678077
+    },
+    {
+      "product": "Widget-B",
+      "order_count": 1254,
+      "total_revenue": 12495794.26,
+      "avg_discount": 0.20341626794258374
+    },
+    {
+      "product": "Service-Lite",
+      "order_count": 1220,
+      "total_revenue": 12233827.36,
+      "avg_discount": 0.19928688524590163
+    },
+    {
+      "product": "Gadget-X",
+      "order_count": 1182,
+      "total_revenue": 12052798.29,
+      "avg_discount": 0.199414551607445
+    },
+    {
+      "product": "Widget-A",
+      "order_count": 1162,
+      "total_revenue": 11916887.42,
+      "avg_discount": 0.20214113597246128
+    },
+    {
+      "product": "Gadget-Y",
+      "order_count": 1195,
+      "total_revenue": 11571768.84,
+      "avg_discount": 0.20712133891213388
+    }
+  ],
+  "revenue_by_channel": [
+    {
+      "channel": "Direct",
+      "total_revenue": 25043829.83,
+      "order_count": 2426
+    },
+    {
+      "channel": "Online",
+      "total_revenue": 24954979.46,
+      "order_count": 2468
+    },
+    {
+      "channel": "Partner",
+      "total_revenue": 24830711.46,
+      "order_count": 2455
+    },
+    {
+      "channel": "Retail",
+      "total_revenue": 23421480.77,
+      "order_count": 2352
+    }
+  ],
+  "monthly_trend": [
+    {
+      "year_month": "2022-01",
+      "monthly_revenue": 6915134.13,
+      "order_count": 712
+    },
+    {
+      "year_month": "2022-02",
+      "monthly_revenue": 6559058.5,
+      "order_count": 661
+    },
+    {
+      "year_month": "2022-03",
+      "monthly_revenue": 7736218.62,
+      "order_count": 746
+    },
+    {
+      "year_month": "2022-04",
+      "monthly_revenue": 7240429.49,
+      "order_count": 713
+    },
+    {
+      "year_month": "2022-05",
+      "monthly_revenue": 8038671.89,
+      "order_count": 738
+    },
+    {
+      "year_month": "2022-06",
+      "monthly_revenue": 7037505.8,
+      "order_count": 674
+    },
+    {
+      "year_month": "2022-07",
+      "monthly_revenue": 7797544.59,
+      "order_count": 775
+    },
+    {
+      "year_month": "2022-08",
+      "monthly_revenue": 7813733.82,
+      "order_count": 740
+    },
+    {
+      "year_month": "2022-09",
+      "monthly_revenue": 6965744.4799999995,
+      "order_count": 672
+    },
+    {
+      "year_month": "2022-10",
+      "monthly_revenue": 6863215.61,
+      "order_count": 696
+    },
+    {
+      "year_month": "2022-11",
+      "monthly_revenue": 6899415.38,
+      "order_count": 724
+    },
+    {
+      "year_month": "2022-12",
+      "monthly_revenue": 6703136.71,
+      "order_count": 696
+    },
+    {
+      "year_month": "2023-01",
+      "monthly_revenue": 7194096.24,
+      "order_count": 696
+    },
+    {
+      "year_month": "2023-02",
+      "monthly_revenue": 4487096.26,
+      "order_count": 458
+    }
+  ],
+  "benchmark": {
+    "timestamp": "2026-04-08T14:49:42.436134+00:00",
+    "n_runs": 3,
+    "baseline_times": [
+      0.77562,
+      0.764056,
+      0.758713
+    ],
+    "optimized_times": [
+      0.008358,
+      0.006595,
+      0.006553
+    ],
+    "mean_baseline": 0.76613,
+    "mean_optimized": 0.007168,
+    "std_baseline": 0.008643,
+    "std_optimized": 0.00103,
+    "improvement_pct": 99.06,
+    "mean_speedup": 106.8761,
+    "target_improvement_pct": 30.0,
+    "passed": true
+  }
+}

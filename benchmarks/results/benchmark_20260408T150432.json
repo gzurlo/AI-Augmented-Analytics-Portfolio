@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-04-08T15:04:32.544985+00:00",
+  "n_trials": 3,
+  "baseline_times": [
+    0.537547,
+    0.500433,
+    0.51498
+  ],
+  "optimized_times": [
+    0.009606,
+    0.009206,
+    0.008575
+  ],
+  "mean_baseline": 0.5177,
+  "mean_optimized": 0.0091,
+  "std_baseline": 0.0187,
+  "std_optimized": 0.0005,
+  "improvement_pct": 98.24,
+  "mean_speedup": 56.7,
+  "target_pct": 30.0,
+  "passed": true
+}

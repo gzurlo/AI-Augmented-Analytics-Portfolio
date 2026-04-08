@@ -1,0 +1,36 @@
+# Dataset download
+kagglehub
+
+# Core data science
+pandas>=2.0.0
+numpy>=1.24.0
+pyarrow>=12.0.0
+fastparquet>=2023.1.0
+scipy>=1.10.0
+
+# SQL
+# sqlite3 is stdlib
+
+# Async HTTP + scraping
+httpx>=0.25.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+aiofiles>=23.0.0
+
+# Visualisation
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# R bridge (optional)
+# rpy2>=3.5.0
+
+# Terminal formatting
+rich>=13.0.0
+tabulate>=0.9.0
+tqdm>=4.65.0
+
+# Testing
+pytest>=7.0.0
+
+# Type hints (runtime)
+typing_extensions>=4.5.0
