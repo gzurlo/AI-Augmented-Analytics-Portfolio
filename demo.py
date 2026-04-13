@@ -125,8 +125,8 @@ def section_3(df=None) -> None:
         _print("\n  [bold]── Revenue by Payment Type ──────────────────────[/bold]")
         _print(payment_breakdown(conn).to_string(index=False))
 
-        _print("\n  [bold]── Fare Anomalies (z > 3, top 5) ────────────────[/bold]")
-        anom = detect_anomalies(conn, z_threshold=3.0)
+        _print("\n  [bold]── Fare Anomalies (z > 2, top 5) ────────────────[/bold]")
+        anom = detect_anomalies(conn, z_threshold=2.0)
         cols = [c for c in ["tpep_pickup_datetime", "trip_distance",
                              "fare_amount", "z_score"] if c in anom.columns]
         _print(anom[cols].head(5).to_string(index=False))

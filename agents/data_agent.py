@@ -63,8 +63,21 @@ class DataAgent:
         return result
 
     def _run_sync(self) -> dict:
-        """Synchronous implementation called from the async wrapper."""
-        if not self.force_refresh and CLEANED_PARQUET.exists():
+        """Synchronous implementation called from the async wrapper.
+
+        Source priority
+        ---------------
+        1. ``data/raw/`` — real Kaggle files take precedence when present.
+        2. ``data/processed/cleaned_taxi.parquet`` — cached clean output when
+           raw is empty and ``force_refresh`` is False.
+        3. Synthetic fallback — generated in-memory when neither exists.
+        """
+        raw_parquets = sorted(DATA_RAW.glob("*.parquet"))
+        raw_csvs     = sorted(DATA_RAW.glob("*.csv"))
+        has_raw      = bool(raw_parquets or raw_csvs)
+
+        if not self.force_refresh and not has_raw and CLEANED_PARQUET.exists():
+            print("  [DataAgent] Source: cache (data/raw/ is empty, using processed parquet)")
             logger.info("DataAgent: loading cached cleaned parquet")
             df = pd.read_parquet(CLEANED_PARQUET)
             return {
@@ -99,6 +112,7 @@ class DataAgent:
         csvs = sorted(DATA_RAW.glob("*.csv"))
 
         if parquets:
+            print(f"  [DataAgent] Source: data/raw/ ({len(parquets)} parquet file(s)) — real TLC data")
             logger.info("DataAgent: reading %d parquet file(s)", len(parquets))
             frames = []
             rows_left = self.max_rows
@@ -115,6 +129,7 @@ class DataAgent:
                 return pd.concat(frames, ignore_index=True), "parquet"
 
         if csvs:
+            print(f"  [DataAgent] Source: data/raw/{csvs[0].name} (CSV) — real data")
             logger.info("DataAgent: reading CSV %s", csvs[0].name)
             try:
                 df = pd.read_csv(csvs[0], nrows=self.max_rows, low_memory=False)
@@ -122,6 +137,7 @@ class DataAgent:
             except Exception as exc:  # noqa: BLE001
                 logger.warning("DataAgent: CSV read failed — %s", exc)
 
+        print("  [DataAgent] Source: synthetic (run setup_data.py to use real TLC data)")
         logger.warning("DataAgent: no raw files found — generating synthetic data")
         return self._synthetic_fallback(), "synthetic"
 

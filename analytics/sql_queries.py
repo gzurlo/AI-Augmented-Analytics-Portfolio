@@ -184,7 +184,7 @@ def payment_breakdown(conn: sqlite3.Connection) -> pd.DataFrame:
 
 def detect_anomalies(
     conn: sqlite3.Connection,
-    z_threshold: float = 3.0,
+    z_threshold: float = 2.0,
 ) -> pd.DataFrame:
     """Return trips whose fare_amount exceeds z_threshold standard deviations.
 

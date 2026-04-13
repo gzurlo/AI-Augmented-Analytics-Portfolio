@@ -170,7 +170,7 @@ class AnalysisAgent:
                 t.payment_type,
                 ROUND((t.fare_amount - s.mean_fare) / s.std_fare, 2) AS z_score
             FROM taxi t, stats s
-            WHERE t.fare_amount > s.mean_fare + 3 * s.std_fare
+            WHERE t.fare_amount > s.mean_fare + 2 * s.std_fare
             ORDER BY t.fare_amount DESC
             LIMIT 20
             """,
