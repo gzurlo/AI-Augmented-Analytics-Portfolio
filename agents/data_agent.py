@@ -57,8 +57,7 @@ class DataAgent:
         dict with keys: dataframe, rows, columns, duration_s, source.
         """
         t0 = time.perf_counter()
-        loop = asyncio.get_event_loop()
-        result = await loop.run_in_executor(None, self._run_sync)
+        result = await asyncio.to_thread(self._run_sync)
         result["duration_s"] = round(time.perf_counter() - t0, 3)
         return result
 

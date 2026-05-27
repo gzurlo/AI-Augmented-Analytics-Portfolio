@@ -9,11 +9,18 @@ dist/
 build/
 .eggs/
 
+# Java compiled output
+*.class
+
 # Claude
 .claude/
 
 # Dataset (large binary files — download via setup_data.py)
 data/raw/
+
+# Generated pipeline outputs (not portfolio artifacts)
+data/processed/astar_result.png
+data/processed/*.jsonl
 
 # Secrets
 .env
@@ -24,8 +31,7 @@ data/raw/
 .LSOverride
 
 # Auto-generated benchmark outputs
-benchmarks/results/*.json
-benchmarks/results/*.md
+benchmarks/results/
 
 # Jupyter
 .ipynb_checkpoints/

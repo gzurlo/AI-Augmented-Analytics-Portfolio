@@ -92,19 +92,20 @@ def top_routes(conn: sqlite3.Connection, n: int = 10) -> pd.DataFrame:
     DataFrame with columns PULocationID, DOLocationID, trip_count, avg_fare.
     """
     return pd.read_sql_query(
-        f"""
+        """
         SELECT
             PULocationID,
             DOLocationID,
-            COUNT(*)                    AS trip_count,
-            ROUND(AVG(fare_amount), 2)  AS avg_fare,
+            COUNT(*)                     AS trip_count,
+            ROUND(AVG(fare_amount), 2)   AS avg_fare,
             ROUND(AVG(trip_distance), 2) AS avg_distance
         FROM taxi
         GROUP BY PULocationID, DOLocationID
         ORDER BY trip_count DESC
-        LIMIT {int(n)}
+        LIMIT ?
         """,
         conn,
+        params=(int(n),),
     )
 
 
@@ -200,7 +201,7 @@ def detect_anomalies(
     DataFrame of anomalous trips ordered by fare_amount descending.
     """
     return pd.read_sql_query(
-        f"""
+        """
         WITH stats AS (
             SELECT
                 AVG(fare_amount) AS mean_fare,
@@ -218,9 +219,10 @@ def detect_anomalies(
             t.payment_type,
             ROUND((t.fare_amount - s.mean_fare) / s.std_fare, 2) AS z_score
         FROM taxi t, stats s
-        WHERE t.fare_amount > s.mean_fare + {float(z_threshold)} * s.std_fare
+        WHERE t.fare_amount > s.mean_fare + ? * s.std_fare
         ORDER BY t.fare_amount DESC
         LIMIT 25
         """,
         conn,
+        params=(float(z_threshold),),
     )
