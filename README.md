@@ -248,7 +248,7 @@ python -m pytest tests/ -v
 ### Option 1 — No credentials (synthetic / cached data, always works)
 
 ```bash
-git clone https://github.com/gianlucazurlo/AI-Augmented-Analytics-Portfolio
+git clone https://github.com/gzurlo/AI-Augmented-Analytics-Portfolio
 cd AI-Augmented-Analytics-Portfolio
 
 python3 -m venv venv
