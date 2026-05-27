@@ -10,7 +10,7 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 # Root paths
 # ---------------------------------------------------------------------------
-PROJECT_ROOT: Path = Path("/Users/gianlucazurlo/AI-Augmented-Analytics-Portfolio")
+PROJECT_ROOT: Path = Path(__file__).resolve().parent
 
 DATA_RAW: Path = PROJECT_ROOT / "data" / "raw"
 DATA_PROCESSED: Path = PROJECT_ROOT / "data" / "processed"
